@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ScoreBoard from './components/ScoreBoard';
 import blueCandy from './images/blue-candy.png';
 import greenCandy from './images/green-candy.png';
@@ -18,12 +18,11 @@ const candyColors = [
   yellowCandy,
 ];
 
-const App = () => {
+function App() {
   const [currentColorArrangement, setCurrentColorArrangement] = useState([]);
   const [squareBeingDraged, setSquareBeingDraged] = useState(null);
   const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
   const [scoreDisplay, setScoreDisplay] = useState(0);
-  const [render, setRender] = useState(true);
 
   //Check is there match of four squares in column
   const checkForColumnOfFour = () => {
@@ -124,7 +123,7 @@ const App = () => {
     }
   };
 
-  console.log(scoreDisplay);
+  //console.log(scoreDisplay);
 
   //Chech and fill empty squares
   const moveInteSquareBelow = () => {
@@ -242,7 +241,7 @@ const App = () => {
     currentColorArrangement,
   ]);
 
-  console.log(currentColorArrangement);
+  //console.log(currentColorArrangement);
 
   return (
     <div className="app">
@@ -264,11 +263,11 @@ const App = () => {
           />
         ))}
       </div>
-      <button className="reset-btn" onClick={() => setRender(!render)}>
+      {/* <button className="reset-btn" onClick={handleForceupdateMethod}>
         reset
-      </button>
+      </button> */}
     </div>
   );
-};
+}
 
 export default App;
